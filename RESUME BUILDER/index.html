@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--bootstrap is used for creating html form to take input-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <title>RESUME GENERATOR</title>
+</head>
+<body>
+
+    <div class="container" id="cv-structure">
+        <h1  class="text-center my-2">Resume Generator</h1>
+        <p class="text-center">Build Resume, The Simplest Way</p>
+
+ 
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Personal Information</h3>
+
+                <div class="form-group mt-3">
+                    <label for="nameField">Your Name</label>
+                    <input type="text" id="nameField" placeholder="Enter Name" class="form-control">
+                </div>
+                
+                <div class="form-group mt-2">
+                    <label for="contactField">Contact No.</label>
+                    <input type="text" id="contactField" placeholder="Enter Contact No." class="form-control">
+                </div>
+
+                
+
+                <div class="form-group mt-2">
+                    <label for="addressField">Address</label>
+                    <textarea type="text" id="addressField" placeholder="Enter Address" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="">Choose Photo</label>
+                    <input id="imgField" type="file" class="form-control">
+                </div>
+
+                <p class="text-secondary my-4"> <h5>Important Links</h5></p>
+
+                    <div class="form-group ">
+                        <label for="mailField">E-mail</label>
+                        <input type="email" id="mailField" placeholder="Enter E-mail" class="form-control">
+                    </div>
+    
+                    <div class="form-group mt-2">
+                        <label for="linkedInField">LinkedIn</label>
+                        <input type="url" id="linkedInField" placeholder="Enter LinkedIn Url" class="form-control">
+                    </div>
+    
+                    <div class="form-group mt-2">
+                        <label for="gitHubField">GitHub</label>
+                        <input type="url" id="gitHubField" placeholder="Enter GitHub Url" class="form-control">
+                    </div>
+
+                
+
+            </div>
+            <div class="col-md-6">
+                <h3>Professional Information</h3>
+
+                
+                <div class="form-group mt-3">
+                    <label for="objectiveField">Objective</label>
+                    <textarea type="text" id="objectiveField" placeholder="Enter Objective" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group mt-2" id="workExp">
+                    <label for="experienceField">Work Experience</label>
+                    <textarea type="text" id="experienceField" placeholder="Add Experience" class="form-control wo-experience"></textarea>
+
+
+                    <div class="container text-center mt-2" id="weAddButton">
+                        <button onclick="addNewWeField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="educationExp">
+                    <label for="educationField">Education</label>
+                    <textarea type="text" id="educationField" placeholder="Add Education" class="form-control education"></textarea>
+
+                    <div class="container text-center mt-2" id="eduAddButton">
+                        <button onclick="addNewEduField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container text-center my-4">
+            <button onclick="generateCV()" class="btn btn-primary btn-lg">Generate CV</button>
+        </div>
+
+    </div>
+    
+
+    <div class="container" id="cv-template">
+
+        <div class="row">
+
+            <div class="col-md-4 text-center py-5 background">
+                <!--1st col-->
+                <img src="https://campussafetyconference.com/wp-content/uploads/2020/08/iStock-476085198.jpg" alt="Profile Picture"
+                class="img-fluid my-img" id="imgTemplate">
+                <div class="container">
+                    <p ><h4 id="nameT1">Piyush Kumar</h4></p>
+                    <p id="contactT">+91 7739025363</p>
+                    <p id="addressT">Patna,Bihar</p>
+
+                    <hr>
+                    <p><a id="mailT"href="#1">https://www.google.com</a></p>
+                    <p><a id="linkedT" href="#2">https://www.indiabix.com</a></p>
+                    <p><a id="githubT" href="#3">https://www.linkedin.com</a></p>
+                </div>
+                
+            </div>
+
+            <div class="col-md-8 py-5">
+                <!--2nd Col-->
+
+                <h1 id="nameT2" class="text-center" style="font-weight: 680">
+                PIYUSH KUMAR
+                </h1>
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h4>Objective</h4>
+                    </div>
+                    <div class="card-body">
+                        <p id="objT">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, excepturi iure, rem officiis sapiente, neque dignissimos expedita animi obcaecati aut doloribus ex eveniet voluptates molestias. Sed amet molestiae sapiente itaque.</p>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h4>Work Experience</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul id="workExpT">
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, pariatur?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, pariatur?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, pariatur?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h4>Education</h4>
+                    </div>
+                    <div class="card-body">
+                       <ul id="eduT">
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, earum.
+                        </li>
+                        <li>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, numquam?
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, corporis!
+                        </li>
+                       </ul>
+                    </div>
+                </div>
+
+                <div class="container mt-4 text-center">
+                    <button onclick="printCV()" class="btn background" >Print CV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

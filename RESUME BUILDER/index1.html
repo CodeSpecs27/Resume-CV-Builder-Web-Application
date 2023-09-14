@@ -1,0 +1,67 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style1.css">
+  </head>
+  <body>
+    <div class="box">
+        <div class="form">
+            <h2>LOGIN</h2>
+            <form>
+                <div class="inputbox">
+                    <input type="text" value="" id="username" required>
+                    <span>Username</span>
+                </div>
+                <div class="inputbox">
+                    <input type="email" value="" id="email" required>
+                    <span>E-mail</span>
+                </div>
+                <div class="inputbox">
+                    <input type="text" value="" id="phone" required>
+                    <span>Phone Number</span>
+                </div>
+                <input type="submit" value="SUBMIT" class="sub" id="submit">
+            </form>
+        </div>
+    </div>  
+    <script type="module" >
+          // Import the functions you need from the SDKs you need
+          import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+          import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+
+
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+            apiKey: "AIzaSyB8VPXu9FfYxhjp2ZUIXCKBscq3PWI-9Pg",
+            authDomain: "login-e3076.firebaseapp.com",
+            projectId: "login-e3076",
+            storageBucket: "login-e3076.appspot.com",
+            messagingSenderId: "462561473323",
+            appId: "1:462561473323:web:1f8103a79ffd8021270b6e"
+          };
+
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+
+          //get ref to database services
+          const db= getDatabase(app);
+
+          document.getElementById("submit").addEventListener('click',function(e){
+            e.preventDefault();
+            set(ref(db,'user/' + document.getElementById("username").value),
+            {
+
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value,
+                PhoneNumber: document.getElementById("phone").value,
+            });
+             alert("Login Sucessfull !!");
+             location.href="index.html";
+          })
+    </script>
+    
+  </body>
+  </html>
